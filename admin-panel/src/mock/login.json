@@ -1,0 +1,9 @@
+{
+  "accessToken": "mockAccessToken",
+  "refreshToken": "mockRefreshToken",
+  "user": {
+    "id": "1",
+    "username": "mockuser",
+    "email": "mockuser@example.com"
+  }
+}
