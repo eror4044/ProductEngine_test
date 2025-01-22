@@ -12,5 +12,5 @@ module.exports = {
   moduleNameMapper: {
     "\\.(css|scss)$": "identity-obj-proxy",
   },
-  transformIgnorePatterns: ["./node_modules/(?!axios)/"],
+  transformIgnorePatterns: ["/node_modules/(?!axios)/"],
 };

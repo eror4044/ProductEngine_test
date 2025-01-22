@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "module": "ESNext",
+    "module": "commonjs",
     "target": "ES6",
     "moduleResolution": "node",
     "skipLibCheck": true,
