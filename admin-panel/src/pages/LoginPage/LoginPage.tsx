@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import "./LoginPage.scss";
 import { loginThunk } from "../../store/actions/authActions";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { getError, getIsAuthenticated, getUser, logout } from "../../store/slices/authSlice";
+import { getError, getIsAuthenticated, logout } from "../../store/slices/authSlice";
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -25,7 +25,7 @@ const LoginPage: React.FC = () => {
   useEffect(() => {
     dispatch(logout());
   }, [dispatch]);
-  
+
   useEffect(() => {
     isAuthenticated && navigate("/home");
   }, [isAuthenticated, error, dispatch, navigate]);
