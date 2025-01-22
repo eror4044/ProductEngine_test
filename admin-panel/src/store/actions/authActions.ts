@@ -7,7 +7,7 @@ export const loginThunk = createAsyncThunk(
   async (credentials: LoginRequest, { rejectWithValue }) => {
     try {
       const response = await axios.post<LoginResponse>(
-        "http://localhost:5000/auth/login",
+        `${process.env.PUBLIC_API_URL}/auth/login`,
         credentials
       );
 

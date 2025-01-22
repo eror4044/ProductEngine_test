@@ -7,7 +7,7 @@ export const fetchUserById = createAsyncThunk(
   async (userId: string, { rejectWithValue }) => {
     try {
       const response = await axios.get<User[]>(
-        `http://localhost:5000/users/${userId}`
+        `${process.env.PUBLIC_API_URL}/users/${userId}`
       );
       return response.data;
     } catch (error) {
