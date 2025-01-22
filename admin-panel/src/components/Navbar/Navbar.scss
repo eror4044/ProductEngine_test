@@ -1,14 +1,17 @@
 .navbar {
-  background-color: #333;
+  background-color: #007bff;
   padding: 1rem;
-
+  height: 60px;
   .navbar-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-
-    .nav-wrapper{
+    height: 100%;
+    p {
+      color: #fff;
+    }
+    .nav-wrapper {
       display: flex;
       gap: 40px;
     }
@@ -18,12 +21,12 @@
       font-size: 1rem;
 
       &:hover {
-        color: #007bff;
+        color: #192a3b;
       }
 
       &.active {
         font-weight: bold;
-        border-bottom: 2px solid #007bff;
+        border-bottom: 2px solid #030303;
       }
     }
 

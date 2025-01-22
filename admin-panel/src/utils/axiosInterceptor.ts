@@ -1,7 +1,7 @@
 import axios, { AxiosHeaders } from "axios";
 
 // Mocking Interceptor
-const isMockEnabled = true;
+const isMockEnabled = false;
 
 axios.interceptors.request.use(
   async (config) => {
@@ -49,7 +49,6 @@ axios.interceptors.request.use(
     return config;
   },
   (error) => {
-    console.error("Request error:", error);
     return Promise.reject(error);
   }
 );
@@ -59,14 +58,10 @@ axios.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.error("Response error:", error.response || error.message);
-
-    if (error.response?.status === 401) {
-      console.warn("Unauthorized, redirecting to login...");
-
+    if (error.response?.status === 401 && error.response?.operation !== "login") {      
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
-      window.location.href = "/login";
+      //window.location.href = "/login";
     }
 
     return Promise.reject(error);

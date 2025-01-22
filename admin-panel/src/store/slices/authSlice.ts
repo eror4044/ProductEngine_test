@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loginThunk } from "../actions/authActions";
 import { RootState } from "..";
+import { toast } from "react-toastify";
 
 const initialState: AuthState = {
   user: null,
@@ -60,10 +61,12 @@ const authSlice = createSlice({
         localStorage.setItem("refreshToken", action.payload.refreshToken);
         state.isAuthenticated = true;
         state.error = null;
+        toast.success("Login successful!", { position: "bottom-right" });
       })
       .addCase(loginThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload as string;
+        toast.error(`Error: ${action.payload}`, { position: "bottom-left" });
       });
   },
 });
@@ -71,6 +74,8 @@ const authSlice = createSlice({
 export const getIsAuthenticated = (state: RootState) =>
   state.auth.isAuthenticated;
 export const getUser = (state: RootState) => state.auth.user;
+export const getError = (state: RootState) => state.auth.error;
+
 export const { logout, initializeAuth } = authSlice.actions;
 
 export default authSlice.reducer;

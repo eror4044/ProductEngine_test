@@ -6,11 +6,14 @@ export const loginThunk = createAsyncThunk(
   "auth/login",
   async (credentials: LoginRequest, { rejectWithValue }) => {
     try {
-      const response = await axios.post<LoginResponse>("/auth/login", credentials);
+      const response = await axios.post<LoginResponse>(
+        "http://localhost:5000/auth/login",
+        credentials
+      );
 
       return response.data;
-    } catch (error: any) {
-      return rejectWithValue(error.response?.data?.message || error.message);
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.error || error.message);
     }
   }
 );

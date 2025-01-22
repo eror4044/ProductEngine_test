@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Routes,
   Route,
@@ -15,6 +14,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { useAppSelector } from "./store";
 import { getIsAuthenticated } from "./store/slices/authSlice";
+import { ToastContainer } from "react-toastify";
 
 const ProtectedRoute: React.FC = () => {
   const isAuthenticated = useAppSelector(getIsAuthenticated);
@@ -30,6 +30,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className="app-container">
+        <ToastContainer aria-label={"aria-label"} />
         <Navbar />
         <main>
           <Routes>
