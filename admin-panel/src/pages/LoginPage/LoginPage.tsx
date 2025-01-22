@@ -24,7 +24,8 @@ const LoginPage: React.FC = () => {
   };
   useEffect(() => {
     dispatch(logout());
-  }, []);
+  }, [dispatch]);
+  
   useEffect(() => {
     isAuthenticated && navigate("/home");
   }, [isAuthenticated, error, dispatch, navigate]);
