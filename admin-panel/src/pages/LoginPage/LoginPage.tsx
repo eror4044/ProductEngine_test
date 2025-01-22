@@ -4,13 +4,13 @@ import { useEffect } from "react";
 import "./LoginPage.scss";
 import { loginThunk } from "../../store/actions/authActions";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { getError, getUser, logout } from "../../store/slices/authSlice";
+import { getError, getIsAuthenticated, getUser, logout } from "../../store/slices/authSlice";
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const error = useAppSelector(getError);
-  const user = useAppSelector(getUser);
+  const isAuthenticated = useAppSelector(getIsAuthenticated);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -24,8 +24,10 @@ const LoginPage: React.FC = () => {
   };
   useEffect(() => {
     dispatch(logout());
-    user && navigate("/home");
-  }, [user, error, dispatch, navigate]);
+  }, []);
+  useEffect(() => {
+    isAuthenticated && navigate("/home");
+  }, [isAuthenticated, error, dispatch, navigate]);
 
   return (
     <div className="login-page">
