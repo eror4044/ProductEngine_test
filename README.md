@@ -8,7 +8,6 @@ Admin Panel is a project for managing data, built with React, Redux Toolkit, and
 - **Styling**: SCSS
 - **Backend**: Axios for HTTP requests
 - **Testing**: Jest, React Testing Library
-- **Build Tool**: Vite
 
 ---
 
@@ -65,7 +64,7 @@ src/
 ├── tests/             # Test files
 ├── utils/             # Utility functions
 ├── App.tsx            # Main application component
-├── main.tsx           # Entry point
+├── index.tsx           # Entry point
 
 
 test environment: https://productengine-test.pages.dev/auth/login
