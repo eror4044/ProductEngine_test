@@ -25,7 +25,7 @@ const LoginPage: React.FC = () => {
   useEffect(() => {
     dispatch(logout());
     user && navigate("/home");
-  }, [user, error]);
+  }, [user, error, dispatch, navigate]);
 
   return (
     <div className="login-page">
