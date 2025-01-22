@@ -58,10 +58,11 @@ axios.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response?.status === 401 && error.response?.operation !== "login") {      
+    if (error.response?.status === 401 && error.response?.data.operation !== "login") {      
+      
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
-      //window.location.href = "/login";
+      window.location.href = "/login";
     }
 
     return Promise.reject(error);

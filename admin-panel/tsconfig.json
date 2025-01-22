@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
+    "module": "ESNext",
+    "target": "ES6",
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

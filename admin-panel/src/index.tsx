@@ -6,20 +6,16 @@ import "./index.scss";
 import "./utils/axiosInterceptor";
 import { initializeAuth } from "./store/slices/authSlice";
 import { StrictMode } from "react";
+import ReactModal from "react-modal";
 
 store.dispatch(initializeAuth());
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-
+ReactModal.setAppElement("#root");
 root.render(
   <StrictMode>
-    <Provider
-      store={store}
-      children={
-        <App />
-      }
-    />
+    <Provider store={store} children={<App />} />
   </StrictMode>
 );
